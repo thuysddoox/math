@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Toán tiếng Anh lớp 3 – Buổi 1</title>
+  <style>
+    :root{--ink:#24304a;--purple:#6c5ce7;--blue:#35a7ff;--yellow:#ffd166;--green:#20bf6b;--red:#ff5d73;--paper:#fffdf6}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e9f7ff,#fff3d8);line-height:1.55}
+    button{font:inherit;cursor:pointer}.app{max-width:1050px;margin:auto;padding:20px}.hero{padding:32px;border-radius:28px;background:linear-gradient(135deg,#6658e8,#3aa8ff);color:#fff;box-shadow:0 12px 30px #596dd933;text-align:center}.hero h1{font-size:clamp(28px,5vw,50px);margin:0}.hero p{font-size:18px}.stars{font-size:28px;letter-spacing:5px}.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0}.nav button,.btn{border:0;border-radius:999px;padding:11px 18px;font-weight:750;background:#fff;color:var(--purple);box-shadow:0 4px 12px #394c7b20}.nav button:hover,.btn:hover{transform:translateY(-2px)}section{display:none;background:var(--paper);padding:26px;margin:18px 0;border-radius:24px;box-shadow:0 8px 28px #33476618}section.active{display:block}h2{color:var(--purple);margin-top:0}h3{color:#176bb2}.goal{background:#fff0bd;padding:14px 18px;border-radius:16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}.card{background:#fff;border:3px solid #e8e5ff;border-radius:18px;padding:16px;text-align:center}.card .big{font-size:32px;font-weight:900;color:var(--purple)}.speak{border:0;background:#dff4ff;border-radius:50%;width:42px;height:42px;font-size:21px}.term{font-size:24px;font-weight:900}.meaning{color:#56627a}.formula{font-size:clamp(22px,4vw,36px);font-weight:900;text-align:center;padding:20px;background:#eef8ff;border-radius:18px}.example{border-left:6px solid var(--yellow);padding:12px 18px;background:#fffae9;margin:12px 0}.question{background:#f4f1ff;border-radius:18px;padding:18px;margin:14px 0}.options{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.option{border:2px solid #c9c2ff;background:#fff;padding:10px 18px;border-radius:14px;font-weight:800}.option.correct{background:#c8f7d8;border-color:var(--green)}.option.wrong{background:#ffd6dd;border-color:var(--red)}.feedback{font-weight:800;min-height:28px;margin-top:8px}.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.memory-card{min-height:82px;border:0;border-radius:15px;background:var(--purple);color:#fff;font-size:18px;font-weight:850;transition:.25s}.memory-card.open,.memory-card.done{background:#fff;color:var(--ink);border:3px solid var(--yellow)}.memory-card.done{background:#d9f8e4;border-color:var(--green)}.scorebar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#eef8ff;padding:12px 16px;border-radius:15px;font-weight:800}.listen-box{text-align:center;padding:24px;background:#eaf9ff;border-radius:18px}.listen-main{font-size:34px;width:70px;height:70px}.input-answer{font-size:20px;width:150px;padding:10px;border:3px solid #c9c2ff;border-radius:12px;text-align:center}.footer{text-align:center;color:#667085;padding:16px}.celebrate{animation:pop .45s}@keyframes pop{50%{transform:scale(1.08)}}
+    @media(max-width:600px){.app{padding:10px}section{padding:18px}.memory{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header class="hero"><div class="stars">★ ★ ★</div><h1>Math Adventure</h1><p>Toán tiếng Anh lớp 3 · Buổi 1: Numbers & Addition</p></header>
+  <nav class="nav" aria-label="Các phần bài học">
+    <button onclick="show('learn')">📖 Học kiến thức</button><button onclick="show('practice')">✏️ Luyện tập</button><button onclick="show('memorySec')">🧠 Ghép thẻ</button><button onclick="show('listen')">🔊 Nghe và chọn</button><button onclick="show('challenge')">🏆 Thử thách</button>
+  </nav>
+
+  <section id="learn" class="active">
+    <h2>1. Mục tiêu buổi học</h2><div class="goal">Sau buổi này, bé có thể đọc số từ <b>1 đến 20</b>, hiểu <b>plus – minus – equals</b> và đọc một phép tính đơn giản bằng tiếng Anh.</div>
+    <h2>2. Numbers – Các số</h2><p>Bấm 🔊 để nghe, sau đó bé đọc lại 2 lần.</p><div id="numberGrid" class="grid"></div>
+    <h2>3. Từ vựng phép tính</h2><div id="termGrid" class="grid"></div>
+    <h2>4. Cách đọc phép tính</h2>
+    <div class="formula">8 + 5 = 13</div><div class="example"><button class="speak" onclick="speak('Eight plus five equals thirteen')">🔊</button> <b>Eight plus five equals thirteen.</b><br><span>Tám cộng năm bằng mười ba.</span></div>
+    <div class="formula">15 − 7 = 8</div><div class="example"><button class="speak" onclick="speak('Fifteen minus seven equals eight')">🔊</button> <b>Fifteen minus seven equals eight.</b><br><span>Mười lăm trừ bảy bằng tám.</span></div>
+    <button class="btn" onclick="show('practice')">Bắt đầu luyện tập →</button>
+  </section>
+
+  <section id="practice"><h2>✏️ Luyện tập</h2><p>Chọn đáp án đúng. Bé có thể bấm loa để nghe đề.</p><div id="quiz"></div><div class="scorebar"><span id="quizScore">Điểm: 0/5</span><button class="btn" onclick="buildQuiz()">Làm lại</button></div></section>
+
+  <section id="memorySec"><h2>🧠 Game 1: Ghép thẻ từ vựng</h2><p>Lật hai thẻ để ghép từ tiếng Anh với nghĩa tiếng Việt.</p><div class="scorebar"><span id="moves">Lượt: 0</span><span id="pairs">Đã ghép: 0/6</span><button class="btn" onclick="buildMemory()">Chơi lại</button></div><br><div id="memory" class="memory"></div><p id="memoryMsg" class="feedback"></p></section>
+
+  <section id="listen"><h2>🔊 Game 2: Nghe và chọn số</h2><div class="listen-box"><p>Bấm loa, nghe số tiếng Anh rồi chọn đáp án.</p><button class="speak listen-main" onclick="repeatListen()">🔊</button><div id="listenOptions" class="options" style="justify-content:center;margin-top:20px"></div><p id="listenMsg" class="feedback"></p><button class="btn" onclick="newListen()">Câu tiếp theo</button></div></section>
+
+  <section id="challenge"><h2>🏆 Game 3: Giải mã phép tính</h2><div class="listen-box"><p>Nghe phép tính, tính nhẩm rồi nhập đáp án.</p><button class="speak listen-main" onclick="repeatChallenge()">🔊</button><p><input id="challengeInput" class="input-answer" type="number" inputmode="numeric" placeholder="Đáp án"></p><button class="btn" onclick="checkChallenge()">Kiểm tra</button> <button class="btn" onclick="newChallenge()">Câu khác</button><p id="challengeMsg" class="feedback"></p><div class="scorebar"><span id="challengeScore">Số ngôi sao: 0 ⭐</span><span>Đúng 3 câu là hoàn thành!</span></div></div></section>
+  <div class="footer">Mẹo: Học 20–25 phút, khuyến khích bé nói thành tiếng và dừng khi bé còn hứng thú.</div>
+</main>
+<script>
+const numberWords=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+const terms=[['plus','cộng','+'],['minus','trừ','−'],['equals','bằng','='],['number','số','123'],['add','cộng thêm','+'],['answer','đáp án','✓']];
+function speak(text){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.72;u.pitch=1.08;speechSynthesis.speak(u)}
+function show(id){document.querySelectorAll('section').forEach(s=>s.classList.toggle('active',s.id===id));scrollTo({top:150,behavior:'smooth'});if(id==='listen'&&!listenWord)newListen();if(id==='challenge'&&!challenge)newChallenge()}
+document.getElementById('numberGrid').innerHTML=numberWords.slice(1).map((w,i)=>`<div class="card"><div class="big">${i+1}</div><div class="term">${w}</div><button class="speak" aria-label="Nghe ${w}" onclick="speak('${w}')">🔊</button></div>`).join('');
+document.getElementById('termGrid').innerHTML=terms.map(t=>`<div class="card"><div class="big">${t[2]}</div><div class="term">${t[0]}</div><div class="meaning">${t[1]}</div><button class="speak" onclick="speak('${t[0]}')">🔊</button></div>`).join('');
+
+const questions=[
+ {say:'Three plus four equals what?',text:'Three plus four = ?',opts:[6,7,8],ans:7},
+ {say:'Ten minus two equals what?',text:'Ten minus two = ?',opts:[7,8,9],ans:8},
+ {say:'Five plus six equals what?',text:'Five plus six = ?',opts:[10,11,12],ans:11},
+ {say:'Fifteen minus five equals what?',text:'Fifteen minus five = ?',opts:[9,10,11],ans:10},
+ {say:'Nine plus eight equals what?',text:'Nine plus eight = ?',opts:[16,17,18],ans:17}
+];
+let quizDone=new Set();function buildQuiz(){quizDone.clear();document.getElementById('quizScore').textContent='Điểm: 0/5';document.getElementById('quiz').innerHTML=questions.map((q,i)=>`<div class="question"><b>Câu ${i+1}: ${q.text}</b> <button class="speak" onclick="speak('${q.say}')">🔊</button><div class="options">${q.opts.map(o=>`<button class="option" onclick="answerQuiz(${i},${o},this)">${o}</button>`).join('')}</div><div id="fb${i}" class="feedback"></div></div>`).join('')}
+function answerQuiz(i,o,btn){if(quizDone.has(i))return;quizDone.add(i);const ok=o===questions[i].ans;btn.classList.add(ok?'correct':'wrong');if(!ok)[...btn.parentElement.children].find(x=>+x.textContent===questions[i].ans).classList.add('correct');document.getElementById('fb'+i).textContent=ok?'🌟 Chính xác! Great job!':'💡 Chưa đúng. Đáp án là '+questions[i].ans+'.';document.getElementById('quizScore').textContent=`Điểm: ${[...quizDone].filter(n=>questions[n].ans===+document.querySelectorAll('.question')[n].querySelector('.option.correct')?.textContent).length}/${questions.length}`}
+buildQuiz();
+
+let first=null,lock=false,matched=0,moves=0;function buildMemory(){const cards=terms.flatMap((t,i)=>[{id:i,label:t[0],say:t[0]},{id:i,label:t[1],say:null}]).sort(()=>Math.random()-.5);first=null;lock=false;matched=moves=0;document.getElementById('moves').textContent='Lượt: 0';document.getElementById('pairs').textContent='Đã ghép: 0/6';document.getElementById('memoryMsg').textContent='';document.getElementById('memory').innerHTML=cards.map((c,i)=>`<button class="memory-card" data-id="${c.id}" data-label="${c.label}" data-say="${c.say||''}" onclick="flip(this)">❓</button>`).join('')}
+function flip(el){if(lock||el.classList.contains('open')||el.classList.contains('done'))return;el.classList.add('open');el.textContent=el.dataset.label;if(el.dataset.say)speak(el.dataset.say);if(!first){first=el;return}moves++;document.getElementById('moves').textContent='Lượt: '+moves;if(first.dataset.id===el.dataset.id){first.classList.replace('open','done');el.classList.replace('open','done');matched++;first=null;document.getElementById('pairs').textContent=`Đã ghép: ${matched}/6`;if(matched===6){document.getElementById('memoryMsg').textContent='🎉 Excellent! Bé đã ghép đúng tất cả các thẻ!';document.getElementById('memory').classList.add('celebrate');setTimeout(()=>document.getElementById('memory').classList.remove('celebrate'),500)}}else{lock=true;const old=first;first=null;setTimeout(()=>{[old,el].forEach(x=>{x.classList.remove('open');x.textContent='❓'});lock=false},800)}}buildMemory();
+
+let listenWord=null;function newListen(){const answer=1+Math.floor(Math.random()*20);listenWord=numberWords[answer];const set=new Set([answer]);while(set.size<3)set.add(1+Math.floor(Math.random()*20));const opts=[...set].sort(()=>Math.random()-.5);document.getElementById('listenOptions').innerHTML=opts.map(n=>`<button class="option" onclick="checkListen(${n},this)">${n}</button>`).join('');document.getElementById('listenMsg').textContent='';setTimeout(()=>speak(listenWord),200)}function repeatListen(){if(listenWord)speak(listenWord)}function checkListen(n,b){const ok=numberWords[n]===listenWord;b.classList.add(ok?'correct':'wrong');document.getElementById('listenMsg').textContent=ok?'🌟 Correct! '+n+' is '+listenWord+'.':'Thử nghe lại một lần nữa nhé!';if(ok)speak('Correct! Great job!')}
+
+let challenge=null,stars=0;function newChallenge(){const plus=Math.random()>.35,a=2+Math.floor(Math.random()*9),b=1+Math.floor(Math.random()*(plus?9:a));challenge={a,b,plus,ans:plus?a+b:a-b};document.getElementById('challengeInput').value='';document.getElementById('challengeMsg').textContent='';setTimeout(repeatChallenge,200)}function repeatChallenge(){if(!challenge)return;speak(`${numberWords[challenge.a]} ${challenge.plus?'plus':'minus'} ${numberWords[challenge.b]} equals what?`)}function checkChallenge(){const val=+document.getElementById('challengeInput').value;if(val===challenge.ans){stars++;document.getElementById('challengeMsg').textContent=stars>=3?'🎉 Xuất sắc! Bé đã hoàn thành buổi học!':'⭐ Chính xác! Bé nhận được một ngôi sao.';document.getElementById('challengeScore').textContent=`Số ngôi sao: ${stars} ⭐`;speak('Correct! Excellent!')}else document.getElementById('challengeMsg').textContent='Chưa đúng, nghe lại và thử thêm nhé!'}
+</script>
+</body>
+</html>
